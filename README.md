@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Synthio Chat
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive chat interface built from Figma design specifications for Synthio Labs.
 
-## Available Scripts
+## 🚀 Live Demo
 
-In the project directory, you can run:
+[Visit the live site](https://synthiolab.netlify.app/)
 
-### `npm start`
+## 📂 GitHub Repository
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[View on GitHub](https://github.com/ryujan404/synthioLabs)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ⚡ Quick Start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run locally:
 
-### `npm run build`
+# Install dependencies
+npm install (node version >= 14)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Start the development server
+npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Then visit: http://localhost:3000
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🧰 Tech Stack
+React	19.2.0	
+Redux	5.0.1	
+Tailwind CSS	3.4.18	
+Date-fns	4.1.0	
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+🏗️ Architecture: Atomic Design
+The codebase follows atomic design principles for scalability and reusability.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+src/components/
+├── atoms/        # Avatar, Badge, IconButton, Logo, SearchBar, TabButton
+├── molecules/    # ChatHeader, ChatListItem, MessageActions, MessageBubble, MessageInput
+├── organisms/    # ChatSidebar, ChatWindow, NavigationBar
+└── pages/        # Chat
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Why Atomic Design?
+✅ Maximizes reusability
 
-## Learn More
+✅ Makes components easy to test and extend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+✅ Supports scalable feature growth
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+✨ Key Features
+🎯 Pixel-perfect translation of the Figma design (desktop & mobile)
 
-### Analyzing the Bundle Size
+📱 Fully responsive layout with sidebar and navigation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+🤖 Dummy chat data simulation with user/AI roles
 
-### Making a Progressive Web App
+🚀 Performance-focused: React.memo, useCallback, useMemo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🧩 Component-based structure: clear separation of atoms, molecules, organisms
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+🎨 Design Decisions
+1) Redux for State Management
+Supports scalability and maintainability for future features beyond the mockup.
 
-### Deployment
+2) Tailwind CSS for Styling
+Enables rapid, consistent, and responsive styling, perfectly matching Figma.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+3) Constants Extraction
+All numbers, colors, and strings are declared in dedicated files for maintainability.
 
-### `npm run build` fails to minify
+4) Atomic Architecture
+Assures ease of adding new features and testing isolated components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+5) Performance Focus
+Memoized components and handlers minimize unnecessary re-renders.
+
