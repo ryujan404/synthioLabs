@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { SIZE_VARIANTS } from '../../../constants/uiConstants';
 
-const Avatar = ({ src, alt, size = 'md', online = false }) => {
-  const sizeClasses = {
-    sm: 'w-8 h-8',
-    md: 'w-12 h-12',
-    lg: 'w-16 h-16',
-  };
+const SIZE_CLASSES = {
+  [SIZE_VARIANTS.SMALL]: 'w-8 h-8',
+  [SIZE_VARIANTS.MEDIUM]: 'w-12 h-12',
+  [SIZE_VARIANTS.LARGE]: 'w-16 h-16',
+};
+
+const Avatar = ({ src, alt, size = SIZE_VARIANTS.MEDIUM, online = false }) => {
+  const avatarClassName = useMemo(
+    () => `avatar-image ${SIZE_CLASSES[size]} rounded-full object-cover`,
+    [size]
+  );
 
   return (
     <div className="avatar-container relative inline-block">
       <img
         src={src}
         alt={alt}
-        className={`avatar-image ${sizeClasses[size]} rounded-full object-cover`}
+        className={avatarClassName}
       />
       {online && (
         <span className="avatar-status absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
@@ -21,5 +27,5 @@ const Avatar = ({ src, alt, size = 'md', online = false }) => {
   );
 };
 
-export default Avatar;
+export default React.memo(Avatar);
 

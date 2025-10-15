@@ -1,67 +1,84 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { MdArrowUpward } from 'react-icons/md';
 import AttachFileIcon from "../../../assets/Attach.svg";
+import { PLACEHOLDER_TEXT, ARIA_LABELS } from '../../../constants/uiConstants';
+
+const CONTAINER_CLASS = 'w-[95%] md:w-[97%] mx-auto message-input rounded-xl shadow-[1px_10px_47px_-5px_rgba(0,0,0,0.3)] px-3 md:px-6 py-3 md:py-4 bg-white';
+const FORM_CLASS = 'message-input__form flex items-center gap-2 md:gap-3';
+const FIELD_CLASS = 'message-input__field flex-1 relative';
+const ATTACHMENT_BUTTON_CLASS = 'message-input__attachment absolute w-11 -ml-[5px] top-1/2 -translate-y-1/2 hover:bg-gray-100 transition-colors z-10';
+const TEXTAREA_CLASS = 'message-input__textarea w-full pl-11 md:pl-12 pr-2 md:pr-4 py-2 md:py-3 border-none outline-none focus:outline-none resize-none bg-transparent text-sm md:text-base';
+const SEND_BUTTON_BASE_CLASS = 'message-input__send p-2 md:p-3 rounded-full transition-colors flex-shrink-0';
+const SEND_BUTTON_ENABLED_CLASS = 'bg-[#3B82F6] hover:bg-[#2563EB]';
+const SEND_BUTTON_DISABLED_CLASS = 'bg-gray-300 cursor-not-allowed';
+const ICON_CLASS = 'w-5 h-5 md:w-6 md:h-6 text-white';
+const TEXTAREA_STYLE = { minHeight: "40px", maxHeight: "120px" };
+const ENTER_KEY = 'Enter';
 
 const MessageInput = ({ onSendMessage }) => {
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const isMessageEmpty = useMemo(() => !message.trim(), [message]);
+
+  const handleSubmit = useCallback((e) => {
     e.preventDefault();
-    if (message.trim()) {
+    if (!isMessageEmpty) {
       onSendMessage(message);
       setMessage('');
     }
-  };
+  }, [message, isMessageEmpty, onSendMessage]);
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+  const handleKeyPress = useCallback((e) => {
+    if (e.key === ENTER_KEY && !e.shiftKey) {
       e.preventDefault();
       handleSubmit(e);
     }
-  };
+  }, [handleSubmit]);
+
+  const handleChange = useCallback((e) => {
+    setMessage(e.target.value);
+  }, []);
+
+  const sendButtonClassName = useMemo(
+    () => `${SEND_BUTTON_BASE_CLASS} ${isMessageEmpty ? SEND_BUTTON_DISABLED_CLASS : SEND_BUTTON_ENABLED_CLASS}`,
+    [isMessageEmpty]
+  );
 
   return (
-    <div className="w-[95%] md:w-[97%] mx-auto message-input rounded-xl shadow-[1px_10px_47px_-5px_rgba(0,0,0,0.3)] px-3 md:px-6 py-3 md:py-4 bg-white">
-      <form
-        onSubmit={handleSubmit}
-        className="message-input__form flex items-center gap-2 md:gap-3"
-      >
-        {/* Input Field with Attachment Button Inside */}
-        <div className="message-input__field flex-1 relative">
-          {/* Attachment Button - Inside Input */}
+    <div className={CONTAINER_CLASS}>
+      <form onSubmit={handleSubmit} className={FORM_CLASS}>
+        <div className={FIELD_CLASS}>
           <button
             type="button"
-            className="message-input__attachment absolute w-11 -ml-[5px] top-1/2 -translate-y-1/2 hover:bg-gray-100 transition-colors z-10"
-            aria-label="Attach file"
+            className={ATTACHMENT_BUTTON_CLASS}
+            aria-label={ARIA_LABELS.ATTACH_FILE}
           >
-            <img src={AttachFileIcon} alt="Attach file" className="" />
+            <img src={AttachFileIcon} alt={ARIA_LABELS.ATTACH_FILE} />
           </button>
 
-          {/* Input Textarea */}
           <textarea
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={handleChange}
             onKeyPress={handleKeyPress}
-            placeholder="Type your message..."
+            placeholder={PLACEHOLDER_TEXT.MESSAGE_INPUT}
             rows="1"
-            className="message-input__textarea w-full pl-11 md:pl-12 pr-2 md:pr-4 py-2 md:py-3 border-none outline-none focus:outline-none resize-none bg-transparent text-sm md:text-base"
-            style={{ minHeight: "40px", maxHeight: "120px" }}
+            className={TEXTAREA_CLASS}
+            style={TEXTAREA_STYLE}
           />
         </div>
 
-        {/* Send Button - Outside on Right */}
         <button
           type="submit"
-          disabled={!message.trim()}
-          className="message-input__send p-2 md:p-3 bg-[#3B82F6] hover:bg-[#2563EB] disabled:bg-gray-300 disabled:cursor-not-allowed rounded-full transition-colors flex-shrink-0"
-          aria-label="Send message"
+          disabled={isMessageEmpty}
+          className={sendButtonClassName}
+          aria-label={ARIA_LABELS.SEND_MESSAGE}
         >
-          <MdArrowUpward className="w-5 h-5 md:w-6 md:h-6 text-white" />
+          <MdArrowUpward className={ICON_CLASS} />
         </button>
       </form>
     </div>
   );
 };
 
-export default MessageInput;
+export default React.memo(MessageInput);
 
