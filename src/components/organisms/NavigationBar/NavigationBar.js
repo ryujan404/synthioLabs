@@ -22,10 +22,10 @@ const NavigationBar = () => {
   const activeTab = useSelector(selectActiveTab);
 
   const tabs = [
-    { id: TABS.DASHBOARD, label: 'Dashboard', icon: SquaresFourIcon },
-    { id: TABS.INSIGHTS, label: 'Insights', icon: MagicWandIcon },
-    { id: TABS.TRANSCRIPT, label: 'Transcript', icon: NotebookIcon },
-    { id: TABS.CHAT, label: 'Chat', icon: ChatIcon },
+    { id: TABS.DASHBOARD, label: 'Dashboard', icon: SquaresFourIcon, disabled: true },
+    { id: TABS.INSIGHTS, label: 'Insights', icon: MagicWandIcon, disabled: true },
+    { id: TABS.TRANSCRIPT, label: 'Transcript', icon: NotebookIcon, disabled: true },
+    { id: TABS.CHAT, label: 'Chat', icon: ChatIcon, disabled: false },
   ];
 
   const handleTabClick = (tabId) => {
@@ -58,6 +58,7 @@ const NavigationBar = () => {
                   label={tab.label}
                   isActive={activeTab === tab.id}
                   onClick={() => handleTabClick(tab.id)}
+                  disabled={tab.disabled}
                 />
               ))}
             </div>
@@ -80,6 +81,7 @@ const NavigationBar = () => {
                 label={tab.label}
                 isActive={activeTab === tab.id}
                 onClick={() => handleTabClick(tab.id)}
+                disabled={tab.disabled}
               />
             ))}
           </div>

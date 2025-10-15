@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MdAttachFile, MdArrowUpward } from 'react-icons/md';
+import AttachFileIcon from "../../../assets/Attach.svg";
 
 const MessageInput = ({ onSendMessage }) => {
   const [message, setMessage] = useState('');
@@ -30,10 +31,10 @@ const MessageInput = ({ onSendMessage }) => {
           {/* Attachment Button - Inside Input */}
           <button
             type="button"
-            className="message-input__attachment absolute left-2 md:left-4 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-100 rounded transition-colors z-10"
+            className="message-input__attachment absolute top-1/2 -translate-y-1/2 hover:bg-gray-100 transition-colors z-10"
             aria-label="Attach file"
           >
-            <MdAttachFile className="w-4 h-4 md:w-5 md:h-5 text-gray-400" />
+            <img src={AttachFileIcon} alt="Attach file" className="" />
           </button>
 
           {/* Input Textarea */}
