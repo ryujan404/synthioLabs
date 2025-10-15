@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MdAttachFile, MdArrowUpward } from 'react-icons/md';
+import { MdArrowUpward } from 'react-icons/md';
 import AttachFileIcon from "../../../assets/Attach.svg";
 
 const MessageInput = ({ onSendMessage }) => {

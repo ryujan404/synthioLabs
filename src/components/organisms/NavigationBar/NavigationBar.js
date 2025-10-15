@@ -1,12 +1,5 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  MdDashboard,
-  MdInsights,
-  MdDescription,
-  MdChat,
-} from 'react-icons/md';
-import Logo from '../../atoms/Logo';
 import TabButton from '../../atoms/TabButton';
 import { setActiveTab } from '../../pages/Chat/actions';
 import { selectActiveTab } from '../../pages/Chat/selectors';

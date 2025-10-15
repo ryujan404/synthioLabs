@@ -1,5 +1,4 @@
 import React from 'react';
-import { MdContentCopy, MdVolumeUp, MdThumbUp, MdThumbDown, MdClose, MdRefresh } from 'react-icons/md';
 import CopyIcon from "../../../assets/Copy.svg";
 import VolumeIcon from "../../../assets/Volume.svg";
 import LikeIcon from "../../../assets/Like.svg";
