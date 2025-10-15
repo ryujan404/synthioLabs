@@ -6,7 +6,7 @@ const TabButton = ({ icon: Icon, label, isActive, onClick }) => {
       onClick={onClick}
       className={`
         tab-button
-        flex items-center gap-2 px-4 py-2 text-sm font-medium
+        flex items-center gap-1 md:gap-2 px-2 md:px-4 py-2 text-xs md:text-sm font-medium
         transition-all duration-200
         ${
           isActive
@@ -23,7 +23,7 @@ const TabButton = ({ icon: Icon, label, isActive, onClick }) => {
           }`}
         />
       )}
-      <span className="tab-button__label">{label}</span>
+      <span className="tab-button__label hidden sm:inline">{label}</span>
     </button>
   );
 };
