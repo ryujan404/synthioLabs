@@ -34,13 +34,13 @@ const NavigationBar = () => {
 
   return (
     <nav className="navigation-bar bg-transparent sticky top-0 z-50">
-      <div className="navigation-bar__container max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="navigation-bar__content flex items-center justify-between h-16">
+      <div className="navigation-bar__container max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="navigation-bar__content flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <div className="navigation-bar__logo flex-shrink-0 flex items-center gap-2">
             {/* <Logo /> */}
-            <img src={Vector} alt="Logo" className="w-10 h-10" />
-            <span className="text-xl font-semibold text-primary-650">
+            <img src={Vector} alt="Logo" className="w-8 h-8 md:w-10 md:h-10" />
+            <span className="text-base md:text-xl font-semibold text-primary-650">
               Synthio Labs
             </span>
           </div>
@@ -64,14 +64,14 @@ const NavigationBar = () => {
           </div>
 
           {/* Right side placeholder for balance */}
-          <div className="navigation-bar__spacer flex-shrink-0 w-32"></div>
+          <div className="navigation-bar__spacer hidden md:block flex-shrink-0 w-32"></div>
         </div>
 
         {/* Mobile Tabs - Shown on smaller screens */}
-        <div className="navigation-bar__mobile-tabs md:hidden pb-3">
+        <div className="navigation-bar__mobile-tabs md:hidden pb-2">
           <div
-            className="navigation-bar__tabs-container flex items-center gap-1 bg-white"
-            style={{ borderRadius: "999px", padding: "0.35rem" }}
+            className="navigation-bar__tabs-container flex items-center justify-center gap-0.5 bg-white"
+            style={{ borderRadius: "999px", padding: "0.25rem" }}
           >
             {tabs.map((tab) => (
               <TabButton

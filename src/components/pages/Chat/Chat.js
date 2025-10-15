@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import NavigationBar from '../../organisms/NavigationBar';
 import ChatSidebar from '../../organisms/ChatSidebar';
@@ -8,20 +8,40 @@ import { TABS } from './constants';
 
 const Chat = () => {
   const activeTab = useSelector(selectActiveTab);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   return (
     <div className="chat-page flex flex-col h-screen bg-gradient-to-tr from-white via-[#f5effe] to-[#e7f3ff]">
       <NavigationBar />
       
-      <main className="chat-page__content lg:w-[90%] rounded-lg my-4 mx-auto flex flex-1 overflow-hidden">
+      <main className="chat-page__content w-full lg:w-[90%] rounded-none lg:rounded-lg my-0 lg:my-4 mx-auto flex flex-1 overflow-hidden">
         {activeTab === TABS.CHAT && (
-          <div className="chat-page__tab chat-page__tab--chat flex w-full">
+          <div className="chat-page__tab chat-page__tab--chat flex w-full relative">
+            {/* Mobile Sidebar Overlay */}
+            {isSidebarOpen && (
+              <div 
+                className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+                onClick={toggleSidebar}
+              />
+            )}
+
             {/* Sidebar */}
-            <ChatSidebar />
+            <div className={`
+              fixed md:relative inset-y-0 left-0 z-50 md:z-0
+              w-80 md:w-80 lg:w-96
+              transform transition-transform duration-300 ease-in-out
+              ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+            `}>
+              <ChatSidebar onClose={() => setIsSidebarOpen(false)} />
+            </div>
 
             {/* Chat Window */}
-            <div className="chat-page__main-area flex-1">
-              <ChatWindow />
+            <div className="chat-page__main-area flex-1 w-full md:w-auto">
+              <ChatWindow onToggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
             </div>
           </div>
         )}
