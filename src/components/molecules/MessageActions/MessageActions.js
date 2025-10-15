@@ -10,24 +10,24 @@ import ReloadIcon from "../../../assets/Reload.svg";
 
 const MessageActions = () => {
   return (
-    <div className="message-actions flex items-center gap-0.5 md:gap-1 mt-2">
+    <div className="message-actions flex items-center mt-2">
       <button className="message-actions__button p-1 hover:bg-gray-100 rounded transition-colors" aria-label="Copy">
-        <img src={CopyIcon} alt="Copy" className="w-4 h-4 md:w-5 md:h-5" />
+        <img src={CopyIcon} alt="Copy" />
       </button>
       <button className="message-actions__button p-1 hover:bg-gray-100 rounded transition-colors" aria-label="Read aloud">
-        <img src={VolumeIcon} alt="Volume" className="w-4 h-4 md:w-5 md:h-5" />
+        <img src={VolumeIcon} alt="Volume" />
       </button>
       <button className="message-actions__button p-1 hover:bg-gray-100 rounded transition-colors" aria-label="Like">
-        <img src={LikeIcon} alt="Like" className="w-4 h-4 md:w-5 md:h-5" />
+        <img src={LikeIcon} alt="Like" />
       </button>
       <button className="message-actions__button p-1 hover:bg-gray-100 rounded transition-colors" aria-label="Dislike">
-        <img src={DislikeIcon} alt="Dislike" className="w-4 h-4 md:w-5 md:h-5" />
+        <img src={DislikeIcon} alt="Dislike" />
       </button>
       <button className="message-actions__button p-1 hover:bg-gray-100 rounded transition-colors" aria-label="Stop">
-        <img src={MagicIcon} alt="Magic" className="w-4 h-4 md:w-5 md:h-5" />
+        <img src={MagicIcon} alt="Magic" />
       </button>
       <button className="message-actions__button p-1 hover:bg-gray-100 rounded transition-colors" aria-label="Regenerate">
-        <img src={ReloadIcon} alt="Reload" className="w-4 h-4 md:w-5 md:h-5" />
+        <img src={ReloadIcon} alt="Reload" />
       </button>
     </div>
   );

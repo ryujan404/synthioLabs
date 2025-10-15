@@ -33,12 +33,12 @@ const ChatHeader = ({ user, onToggleSidebar }) => {
         </div>
 
         {/* Action Buttons */}
-        <div className="chat-header__actions flex items-center gap-1 flex-shrink-0">
-          <button className="chat-header__action p-1.5 md:p-2 hover:bg-gray-100 rounded-lg transition-colors" aria-label="Video call">
-            <img src={VideoIcon} alt="Video Call" className="w-5 h-5 md:w-6 md:h-6"/>
+        <div className="chat-header__actions flex items-center">
+          <button className="chat-header__action p-2 hover:bg-gray-100 rounded-lg transition-colors" aria-label="Video call">
+            <img src={VideoIcon} alt="Video Call"/>
           </button>
-          <button className="chat-header__action p-1.5 md:p-2 hover:bg-gray-100 rounded-lg transition-colors" aria-label="Voice call">
-            <img src={VoiceIcon} alt="Voice Call" className="w-5 h-5 md:w-6 md:h-6"/>
+          <button className="chat-header__action p-2 hover:bg-gray-100 rounded-lg transition-colors" aria-label="Voice call">
+            <img src={VoiceIcon} alt="Voice Call"/>
           </button>
         </div>
       </div>
