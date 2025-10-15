@@ -13,13 +13,17 @@ const MessageBubble = ({ message }) => {
     >
       <div className={`message-bubble__content max-w-[90%] md:max-w-3xl ${isUser ? 'ml-auto' : ''}`}>
         <div
-          className={`message-bubble__text px-3 md:px-4 py-2 md:py-3 rounded-2xl ${
+          className={`message-bubble__text px-3 md:px-4 py-2 md:py-3 ${
             isUser
-              ? 'bg-blue-600 text-white'
-              : 'bg-gray-100 text-gray-900'
+              ? 'bg-primary-850 text-white rounded-tl-2xl rounded-bl-2xl rounded-br-2xl'
+              : 'bg-gray-100 text-gray-900 rounded-tr-2xl rounded-bl-2xl rounded-br-2xl'
           }`}
         >
-          <p className="text-xs md:text-sm leading-relaxed whitespace-pre-wrap">
+          <p className={`whitespace-pre-wrap ${
+            isUser 
+              ? 'text-sm md:text-base font-medium leading-normal tracking-normal text-right'
+              : 'text-sm md:text-base font-normal leading-normal tracking-normal'
+          }`}>
             {message.content}
           </p>
         </div>

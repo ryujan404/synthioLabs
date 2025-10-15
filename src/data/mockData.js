@@ -126,11 +126,53 @@ export const mockMessages = {
       timestamp: '1:16 PM',
     },
   ],
-  '3': [],
-  '4': [],
-  '5': [],
-  '6': [],
-  '7': [],
-  '8': [],
+  '3': [
+    {
+      id: 'm9',
+      type: 'user',
+      content: 'What is the importance of pharmacovigilance in drug safety?',
+      timestamp: '12:45 PM',
+    },
+  ],
+  '4': [
+    {
+      id: 'm10',
+      type: 'user',
+      content: 'How do medical science liaisons bridge the gap between research and practice?',
+      timestamp: '11:30 AM',
+    },
+  ],
+  '5': [
+    {
+      id: 'm11',
+      type: 'user',
+      content: 'What are the latest advancements in drug development technology?',
+      timestamp: 'Yesterday',
+    },
+  ],
+  '6': [
+    {
+      id: 'm12',
+      type: 'user',
+      content: 'How do regulatory agencies impact pharmaceutical innovation?',
+      timestamp: 'Yesterday',
+    },
+  ],
+  '7': [
+    {
+      id: 'm13',
+      type: 'user',
+      content: 'What role do clinical trials play in the approval process?',
+      timestamp: '2 days ago',
+    },
+  ],
+  '8': [
+    {
+      id: 'm14',
+      type: 'user',
+      content: 'How are patients selected for clinical trials and what are the key criteria?',
+      timestamp: '2 days ago',
+    },
+  ],
 };
 

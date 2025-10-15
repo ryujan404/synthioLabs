@@ -15,6 +15,7 @@ module.exports = {
           650: "#013BDB",
           700: "#1d4ed8",
           800: "#1e40af",
+          850: "#4B7BFF",
           900: "#1e3a8a",
         },
         slateLabel: "#93A1B8",

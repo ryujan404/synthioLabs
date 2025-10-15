@@ -7,11 +7,11 @@ const ChatListItem = ({ chat, isActive, onClick }) => {
       onClick={onClick}
       className={`
         chat-list-item
-        px-4 pt-4 cursor-pointer
+        pl-4 pr-2 pt-4 cursor-pointer
         transition-all duration-200
         ${
           isActive
-            ? 'chat-list-item--active bg-blue-50'
+            ? 'chat-list-item--active bg-blue-50 mr-3'
             : 'chat-list-item--inactive hover:bg-white/30'
         }
       `}
