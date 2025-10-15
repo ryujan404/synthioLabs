@@ -1,6 +1,8 @@
 import React from 'react';
 import { MdVideocam, MdPhone } from 'react-icons/md';
 import Avatar from '../../atoms/Avatar';
+import VoiceIcon from "../../../assets/Voice_Call.svg";
+import VideoIcon from "../../../assets/Video_Call.svg";
 
 const ChatHeader = ({ user }) => {
   if (!user) return null;
@@ -22,12 +24,12 @@ const ChatHeader = ({ user }) => {
         </div>
 
         {/* Action Buttons */}
-        <div className="chat-header__actions flex items-center gap-2">
+        <div className="chat-header__actions flex items-center">
           <button className="chat-header__action p-2 hover:bg-gray-100 rounded-lg transition-colors" aria-label="Video call">
-            <MdVideocam className="w-5 h-5 text-gray-600" />
+            <img src={VideoIcon} alt="Video Call"/>
           </button>
           <button className="chat-header__action p-2 hover:bg-gray-100 rounded-lg transition-colors" aria-label="Voice call">
-            <MdPhone className="w-5 h-5 text-gray-600" />
+            <img src={VoiceIcon} alt="Voice Call"/>
           </button>
         </div>
       </div>

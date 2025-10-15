@@ -1,26 +1,33 @@
 import React from 'react';
 import { MdContentCopy, MdVolumeUp, MdThumbUp, MdThumbDown, MdClose, MdRefresh } from 'react-icons/md';
+import CopyIcon from "../../../assets/Copy.svg";
+import VolumeIcon from "../../../assets/Volume.svg";
+import LikeIcon from "../../../assets/Like.svg";
+import DislikeIcon from "../../../assets/Dislike.svg";
+import MagicIcon from "../../../assets/Magic.svg";
+import ReloadIcon from "../../../assets/Reload.svg";
+
 
 const MessageActions = () => {
   return (
-    <div className="message-actions flex items-center gap-2 mt-2">
-      <button className="message-actions__button p-1.5 hover:bg-gray-100 rounded transition-colors" aria-label="Copy">
-        <MdContentCopy className="w-4 h-4 text-gray-600" />
+    <div className="message-actions flex items-center mt-2">
+      <button className="message-actions__button p-1 hover:bg-gray-100 rounded transition-colors" aria-label="Copy">
+        <img src={CopyIcon} alt="Copy" />
       </button>
-      <button className="message-actions__button p-1.5 hover:bg-gray-100 rounded transition-colors" aria-label="Read aloud">
-        <MdVolumeUp className="w-4 h-4 text-gray-600" />
+      <button className="message-actions__button p-1 hover:bg-gray-100 rounded transition-colors" aria-label="Read aloud">
+        <img src={VolumeIcon} alt="Volume" />
       </button>
-      <button className="message-actions__button p-1.5 hover:bg-gray-100 rounded transition-colors" aria-label="Like">
-        <MdThumbUp className="w-4 h-4 text-gray-600" />
+      <button className="message-actions__button p-1 hover:bg-gray-100 rounded transition-colors" aria-label="Like">
+        <img src={LikeIcon} alt="Like" />
       </button>
-      <button className="message-actions__button p-1.5 hover:bg-gray-100 rounded transition-colors" aria-label="Dislike">
-        <MdThumbDown className="w-4 h-4 text-gray-600" />
+      <button className="message-actions__button p-1 hover:bg-gray-100 rounded transition-colors" aria-label="Dislike">
+        <img src={DislikeIcon} alt="Dislike" />
       </button>
-      <button className="message-actions__button p-1.5 hover:bg-gray-100 rounded transition-colors" aria-label="Stop">
-        <MdClose className="w-4 h-4 text-gray-600" />
+      <button className="message-actions__button p-1 hover:bg-gray-100 rounded transition-colors" aria-label="Stop">
+        <img src={MagicIcon} alt="Magic" />
       </button>
-      <button className="message-actions__button p-1.5 hover:bg-gray-100 rounded transition-colors" aria-label="Regenerate">
-        <MdRefresh className="w-4 h-4 text-gray-600" />
+      <button className="message-actions__button p-1 hover:bg-gray-100 rounded transition-colors" aria-label="Regenerate">
+        <img src={ReloadIcon} alt="Reload" />
       </button>
     </div>
   );

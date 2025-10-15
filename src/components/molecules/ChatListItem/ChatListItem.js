@@ -1,6 +1,5 @@
 import React from 'react';
 import Avatar from '../../atoms/Avatar';
-import Badge from '../../atoms/Badge';
 
 const ChatListItem = ({ chat, isActive, onClick }) => {
   return (
@@ -8,7 +7,7 @@ const ChatListItem = ({ chat, isActive, onClick }) => {
       onClick={onClick}
       className={`
         chat-list-item
-        flex items-start gap-3 p-4 cursor-pointer
+        px-4 pt-4 cursor-pointer
         transition-all duration-200
         ${
           isActive
@@ -17,30 +16,25 @@ const ChatListItem = ({ chat, isActive, onClick }) => {
         }
       `}
     >
-      {/* Avatar */}
-      <div className="chat-list-item__avatar flex-shrink-0">
-        <Avatar src={chat.avatar} alt={chat.name} size="md" />
-      </div>
-
-      {/* Content */}
-      <div className="chat-list-item__content flex-1 min-w-0">
-        <div className="chat-list-item__header mb-1">
-          <h3 className="chat-list-item__name text-base font-semibold text-gray-900">
-            {chat.name}
-          </h3>
+      {/* Wrapper with border */}
+      <div className="flex items-start gap-3 w-full border-b border-gray-200 pb-4 mr-4">
+        {/* Avatar */}
+        <div className="chat-list-item__avatar flex-shrink-0">
+          <Avatar src={chat.avatar} alt={chat.name} size="md" />
         </div>
 
-        <p className="chat-list-item__message text-sm text-gray-600 truncate mb-1">
-          {chat.lastMessage}
-        </p>
-
-        {chat.unread > 0 && (
-          <div className="chat-list-item__footer flex justify-end items-center mt-1">
-            <div className="chat-list-item__badge">
-              <Badge count={chat.unread} variant="primary" />
-            </div>
+        {/* Content */}
+        <div className="chat-list-item__content flex-1 min-w-0">
+          <div className="chat-list-item__header mb-1">
+            <h3 className="chat-list-item__name text-base font-semibold text-gray-900">
+              {chat.name}
+            </h3>
           </div>
-        )}
+
+          <p className="chat-list-item__message text-sm text-gray-600 truncate">
+            {chat.lastMessage}
+          </p>
+        </div>
       </div>
     </div>
   );

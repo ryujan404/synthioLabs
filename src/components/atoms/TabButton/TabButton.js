@@ -10,13 +10,19 @@ const TabButton = ({ icon: Icon, label, isActive, onClick }) => {
         transition-all duration-200
         ${
           isActive
-            ? 'tab-button--active bg-blue-600 text-white shadow-sm'
-            : 'tab-button--inactive text-gray-600 hover:bg-white/50'
+            ? "tab-button--active bg-blue-600 text-white shadow-sm"
+            : "tab-button--inactive text-gray-400 hover:bg-white/50"
         }
       `}
-      style={{ borderRadius: '999px' }}
+      style={{ borderRadius: "999px" }}
     >
-      {Icon && <Icon className="tab-button__icon w-4 h-4" />}
+      {Icon && (
+        <Icon 
+          className={`tab-button__icon w-4 h-4 ${
+            isActive ? "text-white" : "text-gray-400"
+          }`}
+        />
+      )}
       <span className="tab-button__label">{label}</span>
     </button>
   );

@@ -12,16 +12,20 @@ import { setActiveTab } from '../../pages/Chat/actions';
 import { selectActiveTab } from '../../pages/Chat/selectors';
 import { TABS } from '../../pages/Chat/constants';
 import Vector from "../../../assets/Vector.svg"
+import { ReactComponent as SquaresFourIcon } from "../../../assets/SquaresFour.svg";
+import { ReactComponent as MagicWandIcon } from "../../../assets/MagicWand.svg";
+import { ReactComponent as NotebookIcon } from "../../../assets/Notebook.svg";
+import { ReactComponent as ChatIcon } from "../../../assets/Chat.svg";
 
 const NavigationBar = () => {
   const dispatch = useDispatch();
   const activeTab = useSelector(selectActiveTab);
 
   const tabs = [
-    { id: TABS.DASHBOARD, label: 'Dashboard', icon: MdDashboard },
-    { id: TABS.INSIGHTS, label: 'Insights', icon: MdInsights },
-    { id: TABS.TRANSCRIPT, label: 'Transcript', icon: MdDescription },
-    { id: TABS.CHAT, label: 'Chat', icon: MdChat },
+    { id: TABS.DASHBOARD, label: 'Dashboard', icon: SquaresFourIcon },
+    { id: TABS.INSIGHTS, label: 'Insights', icon: MagicWandIcon },
+    { id: TABS.TRANSCRIPT, label: 'Transcript', icon: NotebookIcon },
+    { id: TABS.CHAT, label: 'Chat', icon: ChatIcon },
   ];
 
   const handleTabClick = (tabId) => {
