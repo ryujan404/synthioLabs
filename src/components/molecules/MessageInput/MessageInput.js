@@ -31,7 +31,7 @@ const MessageInput = ({ onSendMessage }) => {
           {/* Attachment Button - Inside Input */}
           <button
             type="button"
-            className="message-input__attachment absolute top-1/2 -translate-y-1/2 hover:bg-gray-100 transition-colors z-10"
+            className="message-input__attachment absolute w-11 -ml-[5px] top-1/2 -translate-y-1/2 hover:bg-gray-100 transition-colors z-10"
             aria-label="Attach file"
           >
             <img src={AttachFileIcon} alt="Attach file" className="" />
@@ -44,7 +44,7 @@ const MessageInput = ({ onSendMessage }) => {
             onKeyPress={handleKeyPress}
             placeholder="Type your message..."
             rows="1"
-            className="message-input__textarea w-full pl-8 md:pl-12 pr-2 md:pr-4 py-2 md:py-3 border-none outline-none focus:outline-none resize-none bg-transparent text-sm md:text-base"
+            className="message-input__textarea w-full pl-11 md:pl-12 pr-2 md:pr-4 py-2 md:py-3 border-none outline-none focus:outline-none resize-none bg-transparent text-sm md:text-base"
             style={{ minHeight: "40px", maxHeight: "120px" }}
           />
         </div>
