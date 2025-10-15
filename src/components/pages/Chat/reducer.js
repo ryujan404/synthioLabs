@@ -11,7 +11,7 @@ import { mockChats, mockMessages } from '../../../data/mockData';
 const initialState = {
   chats: mockChats,
   messages: mockMessages,
-  activeChatId: null,
+  activeChatId: mockChats.length > 0 ? mockChats[0].id : null,
   searchQuery: '',
   activeTab: TABS.CHAT,
 };

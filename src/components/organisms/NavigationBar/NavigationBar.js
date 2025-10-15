@@ -33,15 +33,18 @@ const NavigationBar = () => {
       <div className="navigation-bar__container max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="navigation-bar__content flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="navigation-bar__logo flex-shrink-0">
+          <div className="navigation-bar__logo flex-shrink-0 flex items-center gap-2">
             {/* <Logo /> */}
             <img src={Vector} alt="Logo" className="w-10 h-10" />
+            <span className="text-xl font-semibold text-primary-650">
+              Synthio Labs
+            </span>
           </div>
 
           {/* Navigation Tabs - Centered */}
           <div className="navigation-bar__tabs-wrapper hidden md:flex absolute left-1/2 transform -translate-x-1/2">
             <div
-              className="navigation-bar__tabs-container flex items-center gap-1 bg-gray-100"
+              className="navigation-bar__tabs-container flex items-center gap-1 bg-white"
               style={{ borderRadius: "999px", padding: "0.35rem" }}
             >
               {tabs.map((tab) => (
@@ -63,7 +66,7 @@ const NavigationBar = () => {
         {/* Mobile Tabs - Shown on smaller screens */}
         <div className="navigation-bar__mobile-tabs md:hidden pb-3">
           <div
-            className="navigation-bar__tabs-container flex items-center gap-1 bg-gray-100"
+            className="navigation-bar__tabs-container flex items-center gap-1 bg-white"
             style={{ borderRadius: "999px", padding: "0.35rem" }}
           >
             {tabs.map((tab) => (

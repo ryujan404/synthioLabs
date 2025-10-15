@@ -15,9 +15,9 @@ const ChatSidebar = () => {
   return (
     <aside className="chat-sidebar w-full md:w-80 lg:w-96 h-full flex flex-col bg-transparent">
       {/* Header */}
-      <div className="chat-sidebar__header px-6 py-5">
+      <div className="chat-sidebar__header pr-1 px-6 py-5">
         <div className="flex items-center justify-between">
-          <h2 className="chat-sidebar__title text-2xl font-bold text-gray-900">
+          <h2 className="chat-sidebar__title text-2xl font-bold ml-[-22px] text-gray-900">
             Chats
           </h2>
           <button

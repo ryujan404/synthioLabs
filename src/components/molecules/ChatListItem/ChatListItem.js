@@ -34,18 +34,13 @@ const ChatListItem = ({ chat, isActive, onClick }) => {
           {chat.lastMessage}
         </p>
 
-        <div className="chat-list-item__footer flex justify-between items-center">
-          {chat.role && (
-            <p className="chat-list-item__role text-xs text-gray-500 truncate flex-1">
-              {chat.role}
-            </p>
-          )}
-          {chat.unread > 0 && (
-            <div className="chat-list-item__badge flex-shrink-0 ml-2">
+        {chat.unread > 0 && (
+          <div className="chat-list-item__footer flex justify-end items-center mt-1">
+            <div className="chat-list-item__badge">
               <Badge count={chat.unread} variant="primary" />
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
